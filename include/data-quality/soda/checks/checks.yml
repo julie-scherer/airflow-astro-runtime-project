@@ -1,0 +1,14 @@
+# https://docs.soda.io/soda-cl/soda-cl-overview.html
+
+# Check for absent or forbidden columns in dataset
+checks for dataset_name_1:
+  - schema:
+      warn:
+        when required column missing: [column_name]
+      fail:
+        when forbidden column present: [column_name, column_name2]
+
+# Check an email column to confirm that all values are in email format
+checks for dataset_name_2:
+  - invalid_count(email_column_name) = 0:
+      valid format: email

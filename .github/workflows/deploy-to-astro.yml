@@ -1,0 +1,83 @@
+name: Astronomer Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploymentId:
+        description: "Deployment ID"
+        required: true
+        type: string
+      apiToken:
+        description: "Astro API Token"
+        required: true
+        type: string
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+    branches:
+      - main
+    paths:
+      - 'dags/**'
+
+env:
+  ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+  DEPLOYMENT_ID: ${{ vars.DEPLOYMENT_ID }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      build_image: ${{ steps.build_image.outputs.BUILD_IMAGE }}
+      dag_changes: ${{ steps.dag_changes.outputs.changes }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Check files changed
+        id: dag_changes
+        run: echo "::set-output name=changes::${{ toJson(github.event.pull_request.changed_files) }}"
+      - name: Check Dockerfile changes
+        id: build_image
+        run: |
+          echo "================== Dockerfile Check =================="
+          docker="$(git diff --name-only -r ${{ github.event.after }} ${{ github.event.before }} | grep '^Dockerfile' | awk '{print $1}')"
+          if [[ "$docker" ]]; then BUILD_IMAGE=true; else BUILD_IMAGE=false; fi
+          echo "BUILD_IMAGE=$BUILD_IMAGE" >> $GITHUB_OUTPUT
+          echo "BUILD_IMAGE=$BUILD_IMAGE" 
+          echo "======================================================"
+  deploy_image:
+    needs: [check]
+    if: ${{ needs.check.outputs.build_image == 'true' }}
+    env:
+      ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Create image tag
+        id: image_tag
+        run: echo "image_tag=astro-$(date +%Y-%m-%d-%H-%M-%S)" >> $GITHUB_OUTPUT
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          tags: ${{ steps.image_tag.outputs.image_tag }}
+          load: true
+      - name: Deploy to Astro
+        uses: astronomer/deploy-action@v0.2
+        with:
+          deployment-id: ${{ vars.DEPLOYMENT_ID }}
+          image-name: ${{ steps.image_tag.outputs.image_tag }}
+          action: deploy
+  deploy_dags:
+    needs: [check]
+    runs-on: ubuntu-latest
+    if: ${{ needs.check.outputs.build_image == 'false' && needs.check.outputs.dag_changes != '[]' }}
+    env:
+      ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+    steps:
+      - name: Deploy to Astro
+        uses: astronomer/deploy-action@v0.4
+        with:
+          deployment-id: ${{ vars.DEPLOYMENT_ID }}
+          parse: false
+          action: deploy

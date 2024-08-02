@@ -1,0 +1,7 @@
+apache-airflow
+apache-airflow-providers-common-sql
+apache-airflow-providers-amazon
+apache-airflow-providers-postgres
+apache-airflow-providers-postgres[amazon]
+apache-airflow-providers-trino==5.7.0
+python-dotenv

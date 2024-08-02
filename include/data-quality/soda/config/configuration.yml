@@ -1,0 +1,19 @@
+# https://docs.soda.io/soda/connect-postgres.html#
+
+data_source postgres_public:
+  type: postgres
+  host: db
+  port: "5432"
+  username: soda
+  password: secret
+  database: postgres
+  schema: public
+
+data_source postgres_bootcamp:
+  type: postgres
+  host: db
+  port: "5432"
+  username: soda
+  password: secret
+  database: postgres
+  schema: bootcamp
