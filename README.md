@@ -4,21 +4,20 @@
 </div>
 <hr>
 
+# Getting Started 🚀
+
 **Table of Contents**
 
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Local Development](#local-development)
+  - [Prerequisites](#prerequisites)
+  - [Local Development](#local-development)
   - [Working with Docker](#working-with-docker)
   - [Debugging](#debugging)
   - [Navigating the Project](#navigating-the-project)
 
 
-## Getting Started 🚀
+**Why Astro?**
 
-### Why Astro?
-
-<div style="font-size: 13px;">
+<div style="font-size: 10px;">
 <p>I know this might sound like an ad for Astronomer, but hear me out—this is all coming from personal experience. :D As someone who's worked on automating the deployment of Airflow, both <a href="https://github.com/julie-scherer/airflow-local">locally</a> and <a href="https://github.com/julie-scherer/airflow-docker">in Docker</a>, I know firsthand how arduous and complicated the setup requirements can be, even for local environments. The <a href="https://www.astronomer.io/docs/astro/runtime-image-architecture">Astro Runtime Docker image</a> streamlines Airflow and Docker integration by abstracting complexities, simplifying Airflow project management. This is huge when you think about setting up, configuring, and maintaining an Airflow project at a company with multiple deployment environments, along with the need to set up underlying cloud infrastructure and CI/CD pipelines.</p>
 <p>I can just see the human labor costs adding up...</p>
 <p>Astro simplifies the setup process by providing a consistent environment across both local and production instances and offering robust <a href="https://www.astronomer.io/docs/astro/automation-overview">CI/CD support</a> that streamlines the development and deployment cycle. Additionally, Astro offers comprehensive monitoring and logging capabilities, making it easier to debug and optimize workflows over time. I also love the simple commands for development and deployment that the Astro CLI provides (I'm someone who's always adding a Makefile to my projects so I can do everything in one command, lol).</p>
@@ -26,12 +25,12 @@
 <p>Disclaimer: I’m a die-hard Mac user, and it’s clear that the Astro CLI was designed with Mac users in mind (lol). I once worked at a company where everyone else used PCs and they'd been using Astro for a while. While this isn't a dealbreaker, I have to admit that I’ve never encountered the same installation or debugging issues as my unfortunate PC user friends.</p>
 </div>
 
-### Prerequisites
+## Prerequisites
 
 1. **Install [Docker](https://docs.docker.com/engine/install/)**: Docker is a platform for packaging, distributing, and managing applications in containers.
 2. **Install the [Astro CLI](https://docs.astronomer.io/astro/cli/install-cli)**: Astro CLI is a command-line tool designed for working with Apache Airflow projects, streamlining project creation, deployment, and management for smoother development and deployment workflows.
 
-### Local Development
+## Local Development
 
 1. **Clone the Repository**: Open a terminal, navigate to your desired directory, and clone the repository.
     - If you don’t have SSH configured with the GitHub CLI, please follow the instructions for [generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?tool=cli) in the GitHub docs.
