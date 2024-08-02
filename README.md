@@ -14,19 +14,18 @@
 
 **Why Astro?**
 
-<sup><sub>
-I know this might sound like an ad for Astronomer, but hear me out—this is all coming from personal experience. :D 
-</br>
-As someone who's worked on automating the deployment of Airflow, both <a href="https://github.com/julie-scherer/airflow-local">locally</a> and <a href="https://github.com/julie-scherer/airflow-docker">in Docker</a>, I know firsthand how arduous and complicated the setup requirements can be, even for local environments. The <a href="https://www.astronomer.io/docs/astro/runtime-image-architecture">Astro Runtime Docker image</a> streamlines Airflow and Docker integration by abstracting complexities, simplifying Airflow project management. This is huge when you think about setting up, configuring, and maintaining an Airflow project at a company with multiple deployment environments, along with the need to set up underlying cloud infrastructure and CI/CD pipelines.
-</br>
-I can just see the human labor costs adding up...
-</br>
-Astro simplifies the setup process by providing a consistent environment across both local and production instances and offering robust <a href="https://www.astronomer.io/docs/astro/automation-overview">CI/CD support</a> that streamlines the development and deployment cycle. Additionally, Astro offers comprehensive monitoring and logging capabilities, making it easier to debug and optimize workflows over time. I also love the simple commands for development and deployment that the Astro CLI provides (I'm someone who's always adding a Makefile to my projects so I can do everything in one command, lol).
-</br>
-As a personal anecdote, one of my top favorite things about Astro is its documentation. IMO, Airflow's documentation can be challenging to navigate and extract meaningful information from, but Astro's documentation is clear, thorough, and incredibly helpful. Whether I'm trying to understand a bit of code, debugging, or staying up to date with the latest features offered by Airflow and Astro, I always turn to the <a href="https://www.astronomer.io/docs/">Astronomer Docs</a>.
-</br>
-Disclaimer: I’m a die-hard Mac user, and it’s clear that the Astro CLI was designed with Mac users in mind (lol). I once worked at a company where everyone else used PCs and they'd been using Astro for a while. While this isn't a dealbreaker, I have to admit that I’ve never encountered the same installation or debugging issues as my unfortunate PC user friends.
-</sub></sup>
+<sup><sub>I know this might sound like an ad for Astronomer, but hear me out—this is all coming from personal experience. :D</sub></sup>
+
+> As someone who's worked on automating the deployment of Airflow, both <a href="https://github.com/julie-scherer/airflow-local">locally</a> and <a href="https://github.com/julie-scherer/airflow-docker">in Docker</a>, I know firsthand how arduous and complicated the setup requirements can be, even for local environments. The <a href="https://www.astronomer.io/docs/astro/runtime-image-architecture">Astro Runtime Docker image</a> streamlines Airflow and Docker integration by abstracting complexities, simplifying Airflow project management. This is huge when you think about setting up, configuring, and maintaining an Airflow project at a company with multiple deployment environments, along with the need to set up underlying cloud infrastructure and CI/CD pipelines.
+> 
+> I can just see the human labor costs adding up...
+> 
+> Astro simplifies the setup process by providing a consistent environment across both local and production instances and offering robust <a href="https://www.astronomer.io/docs/astro/automation-overview">CI/CD support</a> that streamlines the development and deployment cycle. Additionally, Astro offers comprehensive monitoring and logging capabilities, making it easier to debug and optimize workflows over time. I also love the simple commands for development and deployment that the Astro CLI provides (I'm someone who's always adding a Makefile to my projects so I can do everything in one command, lol).
+> 
+> As a personal anecdote, one of my top favorite things about Astro is its documentation. IMO, Airflow's documentation can be challenging to navigate and extract meaningful information from, but Astro's documentation is clear, thorough, and incredibly helpful. Whether I'm trying to understand a bit of code, debugging, or staying up to date with the latest features offered by Airflow and Astro, I always turn to the <a href="https://www.astronomer.io/docs/">Astronomer Docs</a>.
+> 
+> Disclaimer: I’m a die-hard Mac user, and it’s clear that the Astro CLI was designed with Mac users in mind (lol). I once worked at a company where everyone else used PCs and they'd been using Astro for a while. While this isn't a dealbreaker, I have to admit that I’ve never encountered the same installation or debugging issues as my unfortunate PC user friends.
+
 
 <hr>
 
